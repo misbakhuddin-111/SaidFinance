@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Web App GAS & GitHub</title>
+</head>
+<body>
+    <h1>Data dari Backend GAS:</h1>
+    <p id="hasil">Loading...</p>
+
+    <script>
+        const gasUrl = 'https://script.google.com/macros/s/AKfycbzfjXW5bH_2IJaO8vLplzcMYYyBTTq3fPWXx_fqjqymRn5giy-Q04lYpctsfotem6Bn1A/exec';
+
+        fetch(gasUrl)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('hasil').innerText = data.message;
+            })
+            .catch(error => {
+                document.getElementById('hasil').innerText = 'Gagal memuat data.';
+                console.error(error);
+            });
+    </script>
+</body>
+</html>
